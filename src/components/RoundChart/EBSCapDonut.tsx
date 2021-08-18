@@ -2,27 +2,25 @@ import { Chart } from 'chart.js'
 import { useCallback, useEffect } from 'react'
 import styled from 'styled-components'
 import {
+  ColorDot,
+  Donut,
   DonutContainer,
   Header,
-  InfoList,
-  InfoItem,
-  ColorDot,
   Info,
-  Donut,
+  InfoItem,
+  InfoList,
 } from './DonutStyles'
 
 const OverflowSpan = styled.span`
   position: absolute;
-  left: 53px;
-  top: 55px;
+  left: 63px;
+  top: 65px;
   width: 10px;
   color: white;
 `
 
-const data = [20, 80]
-const colors = ['rgb(209, 223, 16)', 'rgb(8, 173, 54)']
-const text = '1,000 Billion'
-const id = 3
+const data = [70, 30]
+const colors = ['rgb(8, 173, 54)', 'rgb(209, 223, 16)']
 const texts = [
   'zComputeMainthis03...',
   'zComputeMain03',
@@ -30,7 +28,9 @@ const texts = [
   'zComputeMain03',
   'Main03',
 ]
-const OCloudDonut = () => {
+const text = '100 TiB'
+const id = 10
+const EBSCapDonut = () => {
   const createDonut = useCallback(() => {
     const ctx = document.getElementById(`RoundChart-${id}`) as HTMLCanvasElement
     new Chart(ctx, {
@@ -52,6 +52,7 @@ const OCloudDonut = () => {
         ],
       },
       options: {
+        aspectRatio: 1,
         responsive: true,
         plugins: {
           legend: {
@@ -67,7 +68,7 @@ const OCloudDonut = () => {
 
   return (
     <DonutContainer>
-      <Header>Objects by organisation</Header>
+      <Header>EBS capacity by organisation</Header>
       <InfoList>
         {colors.map((color, i) => (
           <InfoItem key={i}>
@@ -83,4 +84,4 @@ const OCloudDonut = () => {
     </DonutContainer>
   )
 }
-export default OCloudDonut
+export default EBSCapDonut

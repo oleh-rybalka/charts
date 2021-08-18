@@ -7,22 +7,20 @@ import {
   InfoList,
   InfoItem,
   ColorDot,
-  Info,
   Donut,
 } from './DonutStyles'
 
 const OverflowSpan = styled.span`
   position: absolute;
-  left: 53px;
-  top: 55px;
+  left: 65px;
+  top: 65px;
   width: 10px;
   color: white;
 `
 
-const data = [20, 80]
-const colors = ['rgb(209, 223, 16)', 'rgb(8, 173, 54)']
-const text = '1,000 Billion'
-const id = 3
+const Info = styled.span``
+const data = [60, 20, 20]
+const colors = ['rgb(209, 223, 16)', 'rgb(8, 173, 54)', 'rgb(30, 150, 252)']
 const texts = [
   'zComputeMainthis03...',
   'zComputeMain03',
@@ -30,7 +28,9 @@ const texts = [
   'zComputeMain03',
   'Main03',
 ]
-const OCloudDonut = () => {
+const text = '60'
+const id = 9
+const EBSVolDonut = () => {
   const createDonut = useCallback(() => {
     const ctx = document.getElementById(`RoundChart-${id}`) as HTMLCanvasElement
     new Chart(ctx, {
@@ -52,6 +52,7 @@ const OCloudDonut = () => {
         ],
       },
       options: {
+        aspectRatio: 1,
         responsive: true,
         plugins: {
           legend: {
@@ -67,7 +68,7 @@ const OCloudDonut = () => {
 
   return (
     <DonutContainer>
-      <Header>Objects by organisation</Header>
+      <Header>EBS volumes by organisation</Header>
       <InfoList>
         {colors.map((color, i) => (
           <InfoItem key={i}>
@@ -83,4 +84,4 @@ const OCloudDonut = () => {
     </DonutContainer>
   )
 }
-export default OCloudDonut
+export default EBSVolDonut

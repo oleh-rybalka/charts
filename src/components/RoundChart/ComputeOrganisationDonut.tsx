@@ -13,16 +13,14 @@ import {
 
 const OverflowSpan = styled.span`
   position: absolute;
-  left: 53px;
-  top: 55px;
+  left: 70px;
+  top: 65px;
   width: 10px;
   color: white;
 `
 
-const data = [20, 80]
+const data = [5, 95]
 const colors = ['rgb(209, 223, 16)', 'rgb(8, 173, 54)']
-const text = '1,000 Billion'
-const id = 3
 const texts = [
   'zComputeMainthis03...',
   'zComputeMain03',
@@ -30,7 +28,9 @@ const texts = [
   'zComputeMain03',
   'Main03',
 ]
-const OCloudDonut = () => {
+const text = '6'
+const id = 7
+const ComputeOrganisationDonut = () => {
   const createDonut = useCallback(() => {
     const ctx = document.getElementById(`RoundChart-${id}`) as HTMLCanvasElement
     new Chart(ctx, {
@@ -52,6 +52,7 @@ const OCloudDonut = () => {
         ],
       },
       options: {
+        aspectRatio: 1,
         responsive: true,
         plugins: {
           legend: {
@@ -67,7 +68,7 @@ const OCloudDonut = () => {
 
   return (
     <DonutContainer>
-      <Header>Objects by organisation</Header>
+      <Header>Compute accounts by organisation</Header>
       <InfoList>
         {colors.map((color, i) => (
           <InfoItem key={i}>
@@ -83,4 +84,4 @@ const OCloudDonut = () => {
     </DonutContainer>
   )
 }
-export default OCloudDonut
+export default ComputeOrganisationDonut
